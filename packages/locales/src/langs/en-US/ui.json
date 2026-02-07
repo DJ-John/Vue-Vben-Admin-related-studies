@@ -73,6 +73,7 @@
     }
   },
   "widgets": {
+    "personalCenter": "Personal Center",
     "document": "Document",
     "qa": "Q&A",
     "setting": "Settings",

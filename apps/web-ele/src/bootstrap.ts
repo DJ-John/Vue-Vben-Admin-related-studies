@@ -1,8 +1,9 @@
-import { createApp, watchEffect } from 'vue';
+import { createApp, watch, watchEffect } from 'vue';
 
 import { registerAccessDirective } from '@vben/access';
 import { registerLoadingDirective } from '@vben/common-ui';
-import { preferences } from '@vben/preferences';
+import { i18n } from '@vben/locales';
+import { preferences, updatePreferences } from '@vben/preferences';
 import { initStores } from '@vben/stores';
 import '@vben/styles';
 import '@vben/styles/ele';
@@ -45,6 +46,19 @@ async function bootstrap(namespace: string) {
 
   // 国际化 i18n 配置
   await setupI18n(app);
+
+  const syncAppName = () => {
+    updatePreferences({
+      app: {
+        name: $t('authentication.pageTitle'),
+      },
+    });
+  };
+  syncAppName();
+  watch(
+    () => i18n.global.locale.value,
+    () => syncAppName(),
+  );
 
   // 配置 pinia-tore
   await initStores(app, { namespace });
