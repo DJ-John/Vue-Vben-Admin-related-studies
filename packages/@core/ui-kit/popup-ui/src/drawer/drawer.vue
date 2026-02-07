@@ -54,7 +54,6 @@ const components = globalShareState.getComponents();
 const id = useId();
 provide('DISMISSABLE_DRAWER_ID', id);
 
-const wrapperRef = ref<HTMLElement>();
 const { $t } = useSimpleLocale();
 const { isMobile } = useIsMobile();
 
@@ -237,20 +236,20 @@ const getForceMount = computed(() => {
             decorative
             orientation="vertical"
           />
-          <SheetTitle v-if="title" class="text-left">
-            <slot name="title">
-              {{ title }}
+          <div>
+            <SheetTitle v-if="title" class="text-left">
+              <slot name="title">
+                {{ title }}
 
-              <VbenHelpTooltip v-if="titleTooltip" trigger-class="pb-1">
-                {{ titleTooltip }}
-              </VbenHelpTooltip>
-            </slot>
-          </SheetTitle>
-          <SheetDescription v-if="description" class="mt-1 text-xs">
-            <slot name="description">
-              {{ description }}
-            </slot>
-          </SheetDescription>
+                <VbenHelpTooltip v-if="titleTooltip" trigger-class="pb-1">
+                  {{ titleTooltip }}
+                </VbenHelpTooltip>
+              </slot>
+            </SheetTitle>
+            <SheetDescription v-if="description" class="mt-1 text-xs">
+              <slot name="description"> {{ description }}</slot>
+            </SheetDescription>
+          </div>
         </div>
 
         <VisuallyHidden v-if="!title || !description">
@@ -281,7 +280,6 @@ const getForceMount = computed(() => {
         </VisuallyHidden>
       </template>
       <div
-        ref="wrapperRef"
         :class="
           cn('relative flex-1 overflow-y-auto p-3', contentClass, {
             'pointer-events-none': showLoading || submitting,

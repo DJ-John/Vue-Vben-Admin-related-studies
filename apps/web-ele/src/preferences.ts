@@ -10,4 +10,17 @@ export const overridesPreferences = defineOverridesPreferences({
   logo: {
     source: '/logo.svg',
   },
+  copyright: {
+    icp: '粤备案号备11010802000100',
+    icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
+    date: '2026',
+    companyName: 'MOOQU PODify',
+  },
+  footer: {
+    enable: false,
+  },
+  theme: {
+    mode: 'light',
+    semiDarkSidebar: true,
+  },
 });

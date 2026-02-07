@@ -5,21 +5,22 @@ import fsp from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { readPackageJSON } from '@vben/node-utils';
+// import { readPackageJSON } from '@vben/node-utils';
 
 /**
  * 用于生成将loading样式注入到项目中
  * 为多app提供loading样式，无需在每个 app -> index.html单独引入
  */
 async function viteInjectAppLoadingPlugin(
-  isBuild: boolean,
+  // isBuild: boolean,
   env: Record<string, any> = {},
   loadingTemplate = 'loading.html',
 ): Promise<PluginOption | undefined> {
   const loadingHtml = await getLoadingRawByHtmlTemplate(loadingTemplate);
-  const { version } = await readPackageJSON(process.cwd());
-  const envRaw = isBuild ? 'prod' : 'dev';
-  const cacheName = `'${env.VITE_APP_NAMESPACE}-${version}-${envRaw}-preferences-theme'`;
+  // const { version } = await readPackageJSON(process.cwd());
+  // const envRaw = isBuild ? 'prod' : 'dev';
+  const cacheName = `'${env.VITE_APP_NAMESPACE}-preferences-theme'`;
+  // const cacheName = `'${env.VITE_APP_NAMESPACE}-${version}-${envRaw}-preferences-theme'`;
 
   // 获取缓存的主题
   // 保证黑暗主题下，刷新页面时，loading也是黑暗主题
