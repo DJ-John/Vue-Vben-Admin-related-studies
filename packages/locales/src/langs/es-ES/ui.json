@@ -1,0 +1,108 @@
+{
+  "formRules": {
+    "required": "Introduce {0}",
+    "selectRequired": "Selecciona {0}",
+    "minLength": "{0} debe tener al menos {1} caracteres",
+    "maxLength": "{0} puede tener como máximo {1} caracteres",
+    "length": "{0} debe tener {1} caracteres",
+    "alreadyExists": "{0} «{1}» ya existe",
+    "startWith": "{0} debe empezar por «{1}»",
+    "invalidURL": "Introduce una URL válida"
+  },
+  "actionTitle": {
+    "edit": "Editar {0}",
+    "create": "Crear {0}",
+    "delete": "Eliminar {0}",
+    "view": "Ver {0}"
+  },
+  "actionMessage": {
+    "deleteConfirm": "¿Seguro que deseas eliminar {0}?",
+    "deleting": "Eliminando {0}...",
+    "deleteSuccess": "{0} se ha eliminado correctamente",
+    "operationSuccess": "La operación se realizó correctamente",
+    "operationFailed": "La operación falló"
+  },
+  "placeholder": {
+    "input": "Introduce",
+    "select": "Selecciona"
+  },
+  "captcha": {
+    "title": "Completa la verificación de seguridad",
+    "sliderSuccessText": "Aprobado",
+    "sliderDefaultText": "Desliza y arrastra",
+    "alt": "Admite el valor del atributo src de la etiqueta img",
+    "sliderRotateDefaultTip": "Haz clic en la imagen para actualizar",
+    "sliderTranslateDefaultTip": "Haz clic en la imagen para actualizar",
+    "sliderRotateFailTip": "La validación falló",
+    "sliderRotateSuccessTip": "Validación correcta, tiempo {0} segundos",
+    "sliderTranslateFailTip": "La validación falló",
+    "sliderTranslateSuccessTip": "Validación correcta, tiempo {0} segundos",
+    "refreshAriaLabel": "Actualizar captcha",
+    "confirmAriaLabel": "Confirmar selección",
+    "confirm": "Confirmar",
+    "pointAriaLabel": "Hacer clic en el punto",
+    "clickInOrder": "Haz clic en orden"
+  },
+  "iconPicker": {
+    "placeholder": "Selecciona un icono",
+    "search": "Buscar icono..."
+  },
+  "jsonViewer": {
+    "copy": "Copiar",
+    "copied": "Copiado"
+  },
+  "fallback": {
+    "pageNotFound": "Página no encontrada",
+    "pageNotFoundDesc": "Lo sentimos, no pudimos encontrar la página que buscabas.",
+    "forbidden": "Acceso denegado",
+    "forbiddenDesc": "Lo sentimos, no tienes permiso para acceder a esta página.",
+    "internalError": "Algo salió mal",
+    "internalErrorDesc": "Lo sentimos, el servidor encontró un error.",
+    "offline": "Página sin conexión",
+    "offlineError": "Error de red",
+    "offlineErrorDesc": "No se puede conectar a Internet. Comprueba tu conexión.",
+    "comingSoon": "Próximamente",
+    "http": {
+      "requestTimeout": "La solicitud agotó el tiempo de espera. Inténtalo de nuevo más tarde.",
+      "networkError": "Se produjo un error de red. Comprueba tu conexión e inténtalo de nuevo.",
+      "badRequest": "Solicitud incorrecta. Comprueba la entrada e inténtalo de nuevo.",
+      "unauthorized": "No autorizado. Inicia sesión para continuar.",
+      "forbidden": "Prohibido. No tienes permiso para acceder a este recurso.",
+      "notFound": "No encontrado. No se pudo encontrar el recurso solicitado.",
+      "internalServerError": "Error interno del servidor. Algo salió mal. Inténtalo de nuevo más tarde."
+    }
+  },
+  "widgets": {
+    "personalCenter": "Centro personal",
+    "document": "Documento",
+    "qa": "Preguntas y respuestas",
+    "setting": "Ajustes",
+    "logoutTip": "¿Quieres cerrar sesión?",
+    "viewAll": "Ver todos los mensajes",
+    "notifications": "Notificaciones",
+    "markAllAsRead": "Marcar todo como leído",
+    "clearNotifications": "Limpiar",
+    "checkUpdatesTitle": "Nueva versión disponible",
+    "checkUpdatesDescription": "Haz clic para actualizar y obtener la última versión",
+    "search": {
+      "title": "Buscar",
+      "searchNavigate": "Buscar navegación",
+      "select": "Seleccionar",
+      "navigate": "Navegar",
+      "close": "Cerrar",
+      "noResults": "No se encontraron resultados",
+      "noRecent": "Sin historial de búsqueda",
+      "recent": "Historial de búsqueda"
+    },
+    "lockScreen": {
+      "title": "Pantalla de bloqueo",
+      "screenButton": "Bloqueando",
+      "password": "Contraseña",
+      "placeholder": "Introduce la contraseña",
+      "unlock": "Haz clic para desbloquear",
+      "errorPasswordTip": "Contraseña incorrecta, vuelve a introducirla",
+      "backToLogin": "Volver a iniciar sesión",
+      "entry": "Entrar al sistema"
+    }
+  }
+}

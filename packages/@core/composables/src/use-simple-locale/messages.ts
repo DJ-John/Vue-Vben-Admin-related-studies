@@ -1,4 +1,4 @@
-export type Locale = 'en-US' | 'zh-CN';
+﻿export type Locale = 'en-US' | 'es-ES' | 'ja-JP' | 'zh-CN';
 
 export const messages: Record<Locale, Record<string, string>> = {
   'en-US': {
@@ -9,6 +9,24 @@ export const messages: Record<Locale, Record<string, string>> = {
     prompt: 'Prompt',
     reset: 'Reset',
     submit: 'Submit',
+  },
+  'es-ES': {
+    cancel: 'Cancelar',
+    collapse: 'Contraer',
+    confirm: 'Confirmar',
+    expand: 'Expandir',
+    prompt: 'Aviso',
+    reset: 'Restablecer',
+    submit: 'Enviar',
+  },
+  'ja-JP': {
+    cancel: 'キャンセル',
+    collapse: '折りたたむ',
+    confirm: '確認',
+    expand: '展開',
+    prompt: 'プロンプト',
+    reset: 'リセット',
+    submit: '送信',
   },
   'zh-CN': {
     cancel: '取消',
