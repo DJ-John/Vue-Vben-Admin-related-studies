@@ -151,7 +151,7 @@ catalog:
   sass: ^1.89.2
   secure-ls: ^2.0.0
   sortablejs: ^1.15.6
-  stylelint: ^16.21.0
+  stylelint: ^17.3.0
   stylelint-config-recess-order: ^6.1.0
   stylelint-config-recommended: ^16.0.0
   stylelint-config-recommended-scss: ^14.1.0
