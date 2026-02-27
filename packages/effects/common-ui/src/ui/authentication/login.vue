@@ -31,14 +31,23 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   qrCodeLoginPath: '/auth/qrcode-login',
   registerPath: '/auth/register',
-  showCodeLogin: true,
-  showForgetPassword: true,
-  showQrcodeLogin: true,
-  showRegister: true,
-  showRememberMe: true,
-  showThirdPartyLogin: true,
+  // 手机验证码登录
+  showCodeLogin: false,
+  // 忘记密码
+  showForgetPassword: false,
+  // 扫码登录
+  showQrcodeLogin: false,
+  // 注册
+  showRegister: false,
+  // 记住密码
+  showRememberMe: false,
+  // 第三方登录
+  showThirdPartyLogin: false,
+  // 按钮文字 -- 方便国际化
   submitButtonText: '',
+  // 副标题 -- 方便国际化
   subTitle: '',
+  // 主标题 -- 方便国际化
   title: '',
 });
 
@@ -96,7 +105,7 @@ defineExpose({
     <slot name="title">
       <Title>
         <slot name="title">
-          {{ title || `${$t('authentication.welcomeBack')} 👋🏻` }}
+          {{ title || `${$t('authentication.welcomeBack')}` }}
         </slot>
         <template #desc>
           <span class="text-muted-foreground">

@@ -1,4 +1,4 @@
-import type { Language } from 'element-plus/es/locale';
+﻿import type { Language } from 'element-plus/es/locale';
 
 import type { App } from 'vue';
 
@@ -15,6 +15,8 @@ import { preferences } from '@vben/preferences';
 
 import dayjs from 'dayjs';
 import enLocale from 'element-plus/es/locale/lang/en';
+import esLocale from 'element-plus/es/locale/lang/es';
+import jaLocale from 'element-plus/es/locale/lang/ja';
 import defaultLocale from 'element-plus/es/locale/lang/zh-cn';
 
 const elementLocale = ref<Language>(defaultLocale);
@@ -57,6 +59,14 @@ async function loadDayjsLocale(lang: SupportedLanguagesType) {
       locale = await import('dayjs/locale/en');
       break;
     }
+    case 'es-ES': {
+      locale = await import('dayjs/locale/es');
+      break;
+    }
+    case 'ja-JP': {
+      locale = await import('dayjs/locale/ja');
+      break;
+    }
     case 'zh-CN': {
       locale = await import('dayjs/locale/zh-cn');
       break;
@@ -81,6 +91,14 @@ async function loadElementLocale(lang: SupportedLanguagesType) {
   switch (lang) {
     case 'en-US': {
       elementLocale.value = enLocale;
+      break;
+    }
+    case 'es-ES': {
+      elementLocale.value = esLocale;
+      break;
+    }
+    case 'ja-JP': {
+      elementLocale.value = jaLocale;
       break;
     }
     case 'zh-CN': {

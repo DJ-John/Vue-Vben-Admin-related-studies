@@ -1,153 +1,173 @@
-<div align="center">
-  <a href="https://github.com/anncwb/vue-vben-admin">
-    <img alt="VbenAdmin Logo" width="215" src="https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp">
-  </a>
-  <br>
-  <br>
+### 项目配置
 
-[![license](https://img.shields.io/github/license/anncwb/vue-vben-admin.svg)](LICENSE)
+这里对项目进行基本的配置，包括样式，主题之类。
 
-  <h1>Vue Vben Admin</h1>
-</div>
+ps: 之所以需要修改，需要确定一个主题风格，相关配置需要跟随项目风格来进行确定
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vbenjs_vue-vben-admin&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vbenjs_vue-vben-admin) ![codeql](https://github.com/vbenjs/vue-vben-admin/actions/workflows/codeql.yml/badge.svg) ![build](https://github.com/vbenjs/vue-vben-admin/actions/workflows/build.yml/badge.svg) ![ci](https://github.com/vbenjs/vue-vben-admin/actions/workflows/ci.yml/badge.svg) ![deploy](https://github.com/vbenjs/vue-vben-admin/actions/workflows/deploy.yml/badge.svg)
+## 应用标题
 
-**English** | [中文](./README.zh-CN.md) | [日本語](./README.ja-JP.md)
+VITE_APP_TITLE=MOOQU PODify
 
-## Introduction
+## 应用命名空间，用于缓存、store等功能的前缀，确保隔离
 
-Vue Vben Admin is a free and open source middle and back-end template. Using the latest `vue3`, `vite`, `TypeScript` and other mainstream technology development, the out-of-the-box middle and back-end front-end solutions can also be used for learning reference.
+VITE_APP_NAMESPACE=mooqu-podify
 
-## Upgrade Notice
+- 在本地贮存时，会携带上版本号与环境可以在以下位置进行删除
+  - `apps\web-ele\src\main.ts`
+  - `internal\vite-config\src\plugins\inject-app-loading\index.ts`
 
-This is the latest version, 5.0, and it is not compatible with previous versions. If you are starting a new project, it is recommended to use the latest version. If you wish to view the old version, please use the [v2 branch](https://github.com/vbenjs/vue-vben-admin/tree/v2).
 
-## Features
 
-- **Latest Technology Stack**: Developed with cutting-edge front-end technologies like Vue 3 and Vite
-- **TypeScript**: A language for application-scale JavaScript
-- **Themes**: Multiple theme colors available with customizable options
-- **Internationalization**: Comprehensive built-in internationalization support
-- **Permissions**: Built-in solution for dynamic route-based permission generation
+## 样式
 
-## Preview
+**登录后主题的 `LOGO` 和 `title` 的位置**
 
-- [Vben Admin](https://vben.pro/) - Full version Chinese site
+- `packages\@core\ui-kit\shadcn-ui\src\components\logo\logo.vue` line: 50
 
-Test Account: vben/123456
+**偏好设置的 `title` 的样式调整**
 
-<div align="center">
-  <img alt="VbenAdmin Logo" width="100%" src="https://anncwb.github.io/anncwb/images/preview1.png">
-  <img alt="VbenAdmin Logo" width="100%" src="https://anncwb.github.io/anncwb/images/preview2.png">
-  <img alt="VbenAdmin Logo" width="100%" src="https://anncwb.github.io/anncwb/images/preview3.png">
-</div>
+- `packages\@core\ui-kit\popup-ui\src\drawer\drawer.vue` line:240
+将 `SheetTitle` 和 `SheetDescription` 使用 `div` 包裹起来就可以
 
-### Use Gitpod
+**全局功能样式的调整**
 
-Open the project in Gitpod (free online dev environment for GitHub) and start coding immediately.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/vbenjs/vue-vben-admin)
+下面是 `packages/@core/preferences/src/config.ts` 里每一项配置的用途说明（按模块分组），对应的是系统的默认偏好设置：
 
-## Documentation
+*app*
+- `accessMode`: 访问控制模式（如前端权限/后端权限）。
 
-[Document](https://doc.vben.pro/)
+- `authPageLayout`: 登录/认证页布局样式（如右侧面板）。
+- `checkUpdatesInterval`: 检查更新的时间间隔（单位通常是分钟或小时，需结合实现）。
+- `colorGrayMode`: 灰色模式（一般用于哀悼模式）。
+- `colorWeakMode`: 色弱模式（增强可访问性）。
+- `compact`: 整体紧凑模式开关。
+- `contentCompact`: 内容区宽度模式（如 `wide`）。
+- `contentCompactWidth`: 内容区固定宽度（像素）。
+- `contentPadding` / `contentPaddingTop` 等: 内容区内边距（总/上下左右）。
+- `defaultAvatar`: 默认头像 URL。
+- `defaultHomePath`: 默认首页路由。
+- `dynamicTitle`: 是否根据路由动态更新页面标题。
+- `enableCheckUpdates`: 是否启用自动检查更新。
+- `enablePreferences`: 是否启用偏好设置入口/功能。
+- `enableRefreshToken`: 是否启用 Refresh Token。
+- `isMobile`: 是否处于移动端（一般由运行时判断）。
+- `layout`: 整体布局类型（如侧边栏布局）。
+- `locale`: 默认语言区域。
+- `loginExpiredMode`: 登录过期处理方式（如跳转登录页）。
+- `name`: 应用名称。
+- `preferencesButtonPosition`: 偏好设置按钮位置（`auto` 自动）。
+- `watermark`: 是否启用水印。
+- `zIndex`: 全局层级基准值。
 
-## Install and Use
+*breadcrumb*
+- `enable`: 是否显示面包屑。
 
-1. Get the project code
+- `hideOnlyOne`: 仅一个时是否隐藏。
+- `showHome`: 是否显示首页入口。
+- `showIcon`: 是否显示图标。
+- `styleType`: 样式类型（如普通）。
 
-```bash
-git clone https://github.com/vbenjs/vue-vben-admin.git
-```
+*copyright*
+- `companyName`: 公司名称。
 
-2. Install dependencies
+- `companySiteLink`: 公司官网链接。
+- `date`: 版权年份。
+- `enable`: 是否显示版权信息。
+- `icp` / `icpLink`: 备案号及链接（国内站点用）。
+- `settingShow`: 是否在设置中显示该项。
 
-```bash
-cd vue-vben-admin
-npm i -g corepack
-pnpm install
-```
+*footer*
+- `enable`: 是否显示页脚。
 
-3. Run
+- `fixed`: 是否固定在底部。
+- `height`: 高度。
 
-```bash
-pnpm dev
-```
+*header*
+- `enable`: 是否显示顶栏。
 
-4. Build
+- `height`: 顶栏高度。
+- `hidden`: 是否隐藏。
+- `menuAlign`: 顶栏菜单对齐方式。
+- `mode`: 顶栏模式（如固定）。
 
-```bash
-pnpm build
-```
+*logo*
+- `enable`: 是否显示 Logo。
 
-## Change Log
+- `fit`: 图片适配模式（如 contain）。
+- `source`: Logo 图片地址。
 
-[CHANGELOG](https://github.com/vbenjs/vue-vben-admin/releases)
+*navigation*
+- `accordion`: 侧边菜单是否手风琴（只展开一个）。
 
-## How to Contribute
+- `split`: 是否启用菜单分离/分割（看实现含义）。
+- `styleType`: 菜单样式（如圆角）。
 
-You are very welcome to join! [Raise an issue](https://github.com/anncwb/vue-vben-admin/issues/new/choose) or submit a Pull Request.
+*shortcutKeys*
+- `enable`: 是否启用快捷键。
 
-**Pull Request Process:**
+- `globalLockScreen`: 全局锁屏快捷键。
+- `globalLogout`: 全局退出快捷键。
+- `globalPreferences`: 全局偏好设置快捷键。
+- `globalSearch`: 全局搜索快捷键。
 
-1. Fork the code
-2. Create your branch: `git checkout -b feat/xxxx`
-3. Submit your changes: `git commit -am 'feat(function): add xxxxx'`
-4. Push your branch: `git push origin feat/xxxx`
-5. Submit `pull request`
+*sidebar*
+- `autoActivateChild`: 是否自动激活子菜单。
 
-## Git Contribution Submission Specification
+- `collapsed`: 默认是否折叠。
+- `collapsedButton`: 是否显示折叠按钮。
+- `collapsedShowTitle`: 折叠时是否显示标题。
+- `collapseWidth`: 折叠宽度。
+- `enable`: 是否启用侧边栏。
+- `expandOnHover`: 悬浮展开。
+- `extraCollapse`: 额外折叠模式开关。
+- `extraCollapsedWidth`: 额外折叠宽度。
+- `fixedButton`: 是否固定折叠按钮。
+- `hidden`: 是否隐藏侧边栏。
+- `mixedWidth`: 混合布局时宽度。
+- `width`: 正常宽度。
 
-Reference [vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) specification ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+*tabbar*
+- `draggable`: 是否可拖拽排序。
 
-- `feat` Add new features
-- `fix` Fix the problem/BUG
-- `style` The code style is related and does not affect the running result
-- `perf` Optimization/performance improvement
-- `refactor` Refactor
-- `revert` Undo edit
-- `test` Test related
-- `docs` Documentation/notes
-- `chore` Dependency update/scaffolding configuration modification etc.
-- `ci` Continuous integration
-- `types` Type definition file changes
+- `enable`: 是否显示标签栏。
+- `height`: 高度。
+- `keepAlive`: 是否启用标签缓存。
+- `maxCount`: 最大标签数量（0 通常表示不限制）。
+- `middleClickToClose`: 是否中键关闭标签。
+- `persist`: 是否持久化标签。
+- `showIcon`: 是否显示图标。
+- `showMaximize`: 是否显示最大化按钮。
+- `showMore`: 是否显示更多操作。
+- `styleType`: 标签栏样式（如 chrome）。
+- `wheelable`: 是否支持滚轮切换。
 
-## Browser Support
+*theme*
+- `builtinType`: 内置主题类型（默认）。
 
-The `Chrome 80+` browser is recommended for local development
+- `colorDestructive` / `colorPrimary` / `colorSuccess` / `colorWarning`: 主题色值。
+- `mode`: 主题模式（如暗色）。
+- `radius`: 圆角大小。
+- `semiDarkHeader`: 顶栏半暗模式。
+- `semiDarkSidebar`: 侧边栏半暗模式。
 
-Support modern browsers, not IE
+*transition*
+- `enable`: 是否启用页面切换动画。
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| :-: | :-: | :-: | :-: |
-| last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+- `loading`: 是否显示加载动画。
+- `name`: 动画名称。
+- `progress`: 是否显示进度条。
 
-## Maintainer
+*widget*
+- `fullscreen`: 全屏按钮。
 
-[@Vben](https://github.com/anncwb)
+- `globalSearch`: 全局搜索按钮。
+- `languageToggle`: 语言切换。
+- `lockScreen`: 锁屏按钮。
+- `notification`: 通知入口。
+- `refresh`: 刷新按钮。
+- `sidebarToggle`: 侧边栏切换按钮。
+- `themeToggle`: 主题切换按钮。
 
-## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=vbenjs/vue-vben-admin&type=Date)](https://star-history.com/#vbenjs/vue-vben-admin&Date)
 
-## Donate
-
-If you think this project is helpful to you, you can help the author buy a cup of coffee to show your support!
-
-![donate](https://unpkg.com/@vbenjs/static-source@0.1.7/source/sponsor.png)
-
-<a style="display: block;width: 100px;height: 50px;line-height: 50px; color: #fff;text-align: center; background: #408aee;border-radius: 4px;" href="https://www.paypal.com/paypalme/cvvben">Paypal Me</a>
-
-## Contributors
-
-<a href="https://github.com/vbenjs/vue-vben-admin/graphs/contributors">
-  <img alt="Contributors" src="https://opencollective.com/vbenjs/contributors.svg?button=false" />
-</a>
-
-## Discord
-
-- [Github Discussions](https://github.com/anncwb/vue-vben-admin/discussions)
-
-## License
-
-[MIT © Vben-2020](./LICENSE)

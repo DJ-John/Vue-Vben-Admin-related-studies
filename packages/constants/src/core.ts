@@ -5,7 +5,7 @@ export const LOGIN_PATH = '/auth/login';
 
 export interface LanguageOption {
   label: string;
-  value: 'en-US' | 'zh-CN';
+  value: 'en-US' | 'es-ES' | 'ja-JP' | 'zh-CN';
 }
 
 /**
@@ -17,7 +17,15 @@ export const SUPPORT_LANGUAGES: LanguageOption[] = [
     value: 'zh-CN',
   },
   {
+    label: '日本語',
+    value: 'ja-JP',
+  },
+  {
     label: 'English',
     value: 'en-US',
+  },
+  {
+    label: 'Español',
+    value: 'es-ES',
   },
 ];

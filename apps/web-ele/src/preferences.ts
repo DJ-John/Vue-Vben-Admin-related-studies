@@ -7,7 +7,20 @@ import { defineOverridesPreferences } from '@vben/preferences';
  */
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
-  app: {
-    name: import.meta.env.VITE_APP_TITLE,
+  logo: {
+    source: '/logo.svg',
+  },
+  copyright: {
+    icp: '粤备案号备11010802000100',
+    icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
+    date: '2026',
+    companyName: 'MOOQU PODify',
+  },
+  footer: {
+    enable: false,
+  },
+  theme: {
+    mode: 'light',
+    semiDarkSidebar: true,
   },
 });
